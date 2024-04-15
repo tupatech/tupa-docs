@@ -8,19 +8,23 @@
       
       
       
+        <link rel="canonical" href="https://github.com/Iuptec/tupa/middlewares/">
+      
+      
+        <link rel="prev" href="../getting_started/">
       
       
       
-      <link rel="icon" href="/Iuptec/tupa/assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
-        <title>Tupã Framework</title>
+        <title>Middlewares - Tupã Framework</title>
       
     
     
-      <link rel="stylesheet" href="/Iuptec/tupa/assets/stylesheets/main.bcfcd587.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
       
 
@@ -39,11 +43,11 @@
       
     
     
-      <link rel="stylesheet" href="/Iuptec/tupa/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/Iuptec/tupa/css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL("/Iuptec/tupa/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#middlewares" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +82,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/Iuptec/tupa/." title="Tupã Framework" class="md-header__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
+    <a href=".." title="Tupã Framework" class="md-header__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -93,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Middlewares
             
           </span>
         </div>
@@ -168,7 +177,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Iuptec/tupa/." title="Tupã Framework" class="md-nav__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
+    <a href=".." title="Tupã Framework" class="md-nav__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -186,7 +195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -206,7 +215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/getting_started/" class="md-nav__link">
+      <a href="../getting_started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -223,10 +232,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Iuptec/tupa/middlewares/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Middlewares
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -235,6 +264,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#middlewares-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Middlewares simples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conjuntos-de-rotas-com-middlewares-diferentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conjuntos de rotas com middlewares diferentes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -246,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/usage.md" class="md-nav__link">
+      <a href="../usage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -266,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/examples.md" class="md-nav__link">
+      <a href="../examples.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/api.md" class="md-nav__link">
+      <a href="../api.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -306,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/contributing.md" class="md-nav__link">
+      <a href="../contributing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -326,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/license.md" class="md-nav__link">
+      <a href="../license.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -346,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/about.md" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -376,6 +443,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#middlewares-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Middlewares simples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conjuntos-de-rotas-com-middlewares-diferentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conjuntos de rotas com middlewares diferentes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -387,8 +482,80 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="middlewares">Middlewares</h1>
+<p><strong>Tabela de conteúdos:</strong></p>
+<ul>
+  <li><a href="#middlewares-simples">MIddlewares simples</a></li>
+  <li><a href="#registro-rotas">Registro de mais rotas</a></li>
+  <li><a href="#item-three">Second Item</a></li>
+</ul>
+
+<p>Usar middlewares no Tupã é muito fácil, podemos implementar middlewares tanto a nível de <em>rota</em> quando para <em>conjuntos de rotas</em>.</p>
+<p><a id="middlewares-simples"></a></p>
+<h2 id="middlewares-simples">Middlewares simples</h2>
+<p>Vamos adicionar um middleware simples a nível de rota. Basta adicionar uma nova propriedade <code>Middlewares</code> dentro do objeto do endpoint.</p>
+<p>Vamos adicionar um <strong>middleware</strong> na rota <code>/cats</code>.</p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    routeInfo := []tupa.RouteInfo{
+        {
+            Path:   &quot;/&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
+            },
+        },
+        {
+            Path:   &quot;/cats&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
+                if err != nil {
+                    return err
+                }
+                defer resp.Body.Close()
+                _, err = io.Copy(*tc.Response(), resp.Body)
+                return err
+            },
+            Middlewares: []tupa.MiddlewareFunc{
+                MiddlewareSampleCats,
+            },
+        },
+    }
+
+    server.RegisterRoutes(routeInfo)
+    server.New()
+}
+
+func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
+    return func(tc *tupa.TupaContext) error {
+        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;image/jpeg&quot;)
+        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
+        return next(tc)
+    }
+}
+</code></pre>
+<p>Podemos obter o resultado do middleware acima, basta apertar f12 e conferir a requisição na aba <strong>Network</strong> do nosso <em>devtools</em>.</p>
+<p><img alt="Image title" src="../assets/images/Captura de tela de 2024-04-15 16-07-15.png" /></p>
+<p><a id="rotas-middlewares-diferetes"></a></p>
+<h2 id="conjuntos-de-rotas-com-middlewares-diferentes">Conjuntos de rotas com middlewares diferentes</h2>
+<p>Mas pode ser que queremos adicionar middlewares diferentes para conjuntos de rotas diferentes</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -422,10 +589,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/Iuptec/tupa/", "features": ["content.code.copy"], "search": "/Iuptec/tupa/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/Iuptec/tupa/assets/javascripts/bundle.1e8ae164.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   </body>

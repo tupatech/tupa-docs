@@ -12,9 +12,11 @@
       
       
       
+        <link rel="next" href="getting_started/">
+      
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -22,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.bcfcd587.min.css">
       
       
 
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Inicio Rápido
             
           </span>
         </div>
@@ -206,7 +208,7 @@
           
   
   <span class="md-ellipsis">
-    Home
+    Inicio Rápido
   </span>
   
 
@@ -217,7 +219,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    Inicio Rápido
   </span>
   
 
@@ -234,23 +236,23 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Tabela de conteúdos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#instalacao" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Instalação
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#iniciando-um-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Iniciando um Servidor
     </span>
   </a>
   
@@ -271,11 +273,11 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started.md" class="md-nav__link">
+      <a href="getting_started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Como começar
+    Registrando novas rotas
   </span>
   
 
@@ -291,11 +293,11 @@
   
   
     <li class="md-nav__item">
-      <a href="installation.md" class="md-nav__link">
+      <a href="middlewares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Instalando
+    Middlewares
   </span>
   
 
@@ -446,23 +448,23 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Tabela de conteúdos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#instalacao" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Instalação
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#iniciando-um-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      Iniciando um Servidor
     </span>
   </a>
   
@@ -484,19 +486,25 @@
 
 
 <h1 id="bem-vindo-ao-tupa">Bem vindo ao Tupã ⚡️</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<p>O Tupã é um framework backend feito em Go.</p>
+<p>A ideia do framework é ser fácil e rápido de usar para a criação de aplicações robustas rapidamente.</p>
+<p>O único requisito é que <a href="https://go.dev/dl/">Golang</a>, versão 1.21.5 para cima esteja instalado na máquina.</p>
+<h2 id="instalacao">Instalação</h2>
+<pre><code>$ go get github.com/tupatech/tupa
+</code></pre>
+<h2 id="iniciando-um-servidor">Iniciando um Servidor</h2>
+<p>Para iniciarmos um novo servidor, basta instanciarmos um <code>NewAPIServer(":porta")</code> e fazer o bootstrap da API com o método <code>New()</code>. Inicialize o módulo na sua máquina <code>go mod &lt;nome_modulo&gt;</code> e coloque o seguinte conteúdo num arquivo <code>main.go</code> </p>
+<pre><code class="language-go">import (
+    import &quot;github.com/tupatech/tupa&quot;
+)
+
+func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    server.New()
+}
+</code></pre>
+<p>Rode o servidor na máquina <code>go run main.go</code>. No browser em <code>http://localhost:6969/</code> vamos receber a seguinte mensagem:</p>
+<pre><code>&quot;Seja bem vindo ao Tupã framework&quot;
 </code></pre>
 
 
@@ -544,10 +552,10 @@ docs/
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   </body>

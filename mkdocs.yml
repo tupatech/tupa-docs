@@ -1,17 +1,18 @@
 site_name: Tupã Framework
 site_url: https://github.com/Iuptec/tupa
 nav:
-  - Home: index.md
-  - Como começar: getting_started.md
-  - Instalando: installation.md
-  - Como usar: usage.md
-  - Examplos: examples.md
-  - API: api.md
+  - Inicio Rápido: index.md
+  - Registrando novas rotas: getting_started.md
+  - Middlewares: middlewares.md
+  - Context: context.md
+  - Exemplos: examples.md
   - Contribua: contributing.md
   - Licença: license.md
   - Sobre: about.md
 theme:
   name: "material"
+  features:
+    - content.code.copy
 
 plugins:
 - search
@@ -19,3 +20,7 @@ plugins:
 
 extra_css:
   - css/extra.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      pygments_style: monokai

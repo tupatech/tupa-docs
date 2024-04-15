@@ -1,17 +1,34 @@
 # Bem vindo ao Tupã ⚡️
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+O Tupã é um framework backend feito em Go.
 
-## Commands
+A ideia do framework é ser fácil e rápido de usar para a criação de aplicações robustas rapidamente.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+O único requisito é que [Golang](https://go.dev/dl/), versão 1.21.5 para cima esteja instalado na máquina.
 
-## Project layout
+## Instalação
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```
+$ go get github.com/tupatech/tupa
+```
+
+## Iniciando um Servidor
+
+Para iniciarmos um novo servidor, basta instanciarmos um ```NewAPIServer(":porta")``` e fazer o bootstrap da API com o método ```New()```. Inicialize o módulo na sua máquina ```go mod <nome_modulo>``` e coloque o seguinte conteúdo num arquivo `main.go` 
+
+``` go 
+import (
+	import "github.com/tupatech/tupa"
+)
+
+func main() {
+	server := tupa.NewAPIServer(":6969")
+	server.New()
+}
+```
+
+Rode o servidor na máquina ```go run main.go```. No browser em `http://localhost:6969/` vamos receber a seguinte mensagem:
+
+```
+"Seja bem vindo ao Tupã framework"
+```

@@ -8,19 +8,25 @@
       
       
       
+        <link rel="canonical" href="https://github.com/Iuptec/tupa/getting_started/">
       
       
+        <link rel="prev" href="..">
       
-      <link rel="icon" href="/Iuptec/tupa/assets/images/favicon.png">
+      
+        <link rel="next" href="../middlewares/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
-        <title>Tupã Framework</title>
+        <title>Registrando novas rotas - Tupã Framework</title>
       
     
     
-      <link rel="stylesheet" href="/Iuptec/tupa/assets/stylesheets/main.bcfcd587.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
       
 
@@ -39,11 +45,11 @@
       
     
     
-      <link rel="stylesheet" href="/Iuptec/tupa/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/Iuptec/tupa/css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL("/Iuptec/tupa/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#como-funciona-o-registro-de-rotas" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +84,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/Iuptec/tupa/." title="Tupã Framework" class="md-header__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
+    <a href=".." title="Tupã Framework" class="md-header__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -93,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Registrando novas rotas
             
           </span>
         </div>
@@ -168,7 +179,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Iuptec/tupa/." title="Tupã Framework" class="md-nav__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
+    <a href=".." title="Tupã Framework" class="md-nav__button md-logo" aria-label="Tupã Framework" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -186,7 +197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -203,10 +214,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/Iuptec/tupa/getting_started/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Registrando novas rotas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -215,6 +246,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabela de conteúdos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#registro-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registro simples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registro-de-mais-rotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registro de mais rotas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -226,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/middlewares/" class="md-nav__link">
+      <a href="../middlewares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -246,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/usage.md" class="md-nav__link">
+      <a href="../usage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -266,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/examples.md" class="md-nav__link">
+      <a href="../examples.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/api.md" class="md-nav__link">
+      <a href="../api.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -306,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/contributing.md" class="md-nav__link">
+      <a href="../contributing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -326,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/license.md" class="md-nav__link">
+      <a href="../license.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -346,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Iuptec/tupa/about.md" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -376,6 +445,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabela de conteúdos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#registro-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registro simples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registro-de-mais-rotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registro de mais rotas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -387,8 +484,93 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="como-funciona-o-registro-de-rotas">Como funciona o registro de rotas</h1>
+<p><strong>Tabela de conteúdos:</strong></p>
+<ul>
+  <li><a href="#registro-simples">Registro Simples</a></li>
+  <li><a href="#registro-rotas">Registro de mais rotas</a></li>
+  <li><a href="#item-three">Second Item</a></li>
+</ul>
+
+<p><a id="registro-simples"></a></p>
+<h2 id="registro-simples">Registro simples</h2>
+<p>De forma simples, podemos instanciar uma rota ao chamar o método <code>RegisterRoutes([]tupa.RouteInfo{routeInfo})</code>, que podemos acessar facilmente a partir do nosso servidor instanciado.</p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    routeInfo := tupa.RouteInfo{
+        Path:   &quot;/&quot;,
+        Method: &quot;GET&quot;,
+        Handler: func(tc *tupa.TupaContext) error {
+            return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
+        },
+    }
+    server.RegisterRoutes([]tupa.RouteInfo{routeInfo})
+
+    server.New()
+}
+</code></pre>
+<p>Agora em <code>http://localhost:6969/</code>iremos obter a mensagem <em>"Hello world! :D"</em>.</p>
+<p>No Tupã, por padrão todo handler deve receber um TupaContext e retornar um erro. Através do TupaContext você será capaz de acessar diversas funcionalidades para a sua requisição ser bem sucedida.</p>
+<p><a id="registro-rotas"></a></p>
+<h2 id="registro-de-mais-rotas">Registro de mais rotas</h2>
+<p>Para fazer o registro de novas rotas, podemos simplesmente adicionar mais paths ao array <code>routeInfo</code></p>
+<pre><code class="language-golang">package main
+
+import (
+    &quot;io&quot;
+    &quot;net/http&quot;
+
+    &quot;github.com/tupatech/tupa&quot;
+)
+
+func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    routeInfo := []tupa.RouteInfo{
+        {
+            Path:   &quot;/&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
+            },
+        },
+        {
+            Path:   &quot;/cats&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
+                if err != nil {
+                    return err
+                }
+                defer resp.Body.Close()
+                _, err = io.Copy(*tc.Response(), resp.Body)
+                return err
+            },
+        },
+    }
+
+    server.RegisterRoutes(routeInfo)
+    server.New()
+}
+
+</code></pre>
+<p>Agora teremos os dois endpoints registrados, se <code>/</code>e <code>/cats</code>. Se formos em <code>http://localhost:6969/cat</code> vamos ver a foto de um 🐈.</p>
+<p>Porém, em alguns casos vamos precisar registrar rotas com regras diferentes, para isso devemos usar os <a href="../middlewares/">middlewares</a>. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -422,10 +604,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/Iuptec/tupa/", "features": ["content.code.copy"], "search": "/Iuptec/tupa/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/Iuptec/tupa/assets/javascripts/bundle.1e8ae164.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   </body>
