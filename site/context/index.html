@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/Iuptec/tupa/middlewares/">
+        <link rel="canonical" href="https://github.com/Iuptec/tupa/context/">
       
       
-        <link rel="prev" href="../getting_started/">
+        <link rel="prev" href="../middlewares/">
       
       
-        <link rel="next" href="../context/">
+        <link rel="next" href="../examples/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Middlewares - Tupã Framework</title>
+        <title>Context - Tupã Framework</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#middlewares" class="md-skip">
+        <a href="#context-no-tupa" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Middlewares
+              Context
             
           </span>
         </div>
@@ -234,6 +234,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../middlewares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Middlewares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -250,7 +270,7 @@
           
   
   <span class="md-ellipsis">
-    Middlewares
+    Context
   </span>
   
 
@@ -261,7 +281,7 @@
         
   
   <span class="md-ellipsis">
-    Middlewares
+    Context
   </span>
   
 
@@ -283,27 +303,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#middlewares-simples" class="md-nav__link">
+  <a href="#context-em-middlewares" class="md-nav__link">
     <span class="md-ellipsis">
-      Middlewares simples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conjuntos-de-rotas-com-middlewares-diferentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conjuntos de rotas com middlewares diferentes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#middlewares-em-conjuntos-de-rotas-rota-especifica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Middlewares em conjuntos de rotas + rota específica
+      Context em Middlewares
     </span>
   </a>
   
@@ -313,26 +315,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../context/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Context
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -444,27 +426,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#middlewares-simples" class="md-nav__link">
+  <a href="#context-em-middlewares" class="md-nav__link">
     <span class="md-ellipsis">
-      Middlewares simples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conjuntos-de-rotas-com-middlewares-diferentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conjuntos de rotas com middlewares diferentes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#middlewares-em-conjuntos-de-rotas-rota-especifica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Middlewares em conjuntos de rotas + rota específica
+      Context em Middlewares
     </span>
   </a>
   
@@ -485,155 +449,40 @@
                   
 
 
-<h1 id="middlewares">Middlewares</h1>
-<p><strong>Tabela de conteúdos:</strong></p>
+<h1 id="context-no-tupa">Context no Tupã</h1>
+<p>Você pode acessar o context da requisição a partir da propriedade Context dentro da struct do <strong>Tupa</strong></p>
+<h2 id="context-em-middlewares">Context em Middlewares</h2>
+<p>Podemos facilmente adicionar contexto a uma requisição. No Tupâ existem várias formas de se trabalhar com o contexto través do <strong>TupaContext</strong>. Por exemplo você pode colocar um novo context com o método <code>SetContext()</code>, que vai colocar o método na requisição. Para obter o valor do contexto, você pode obter o contexto com os métodos <code>GetCtx()</code>, <code>CtxValue(ctx)</code>.</p>
 <ul>
-  <li><a href="#middlewares-simples">MIddlewares simples</a></li>
-  <li><a href="#rotas-middlewares-diferetes">Middlewares diferentes para Conjuntos de rotas</a></li>
-  <li><a href="#middlewares-grupo-rotas-especificos">Middlewares em conjuntos de rotas + especificos de rotas</a></li>
+<li><code>GetCtx()</code>: retorna o context inteiro da requisição</li>
+<li><code>CtxValue(ctx)</code>: retorna o contexto específico de acordo com a key especificada</li>
 </ul>
-
-<p>Usar middlewares no Tupã é muito fácil, podemos implementar middlewares tanto a nível de <em>rota</em> quando para <em>conjuntos de rotas</em>. </p>
-<p><a id="middlewares-simples"></a></p>
-<h2 id="middlewares-simples">Middlewares simples</h2>
-<p>Vamos adicionar um middleware simples a nível de rota. Basta adicionar uma nova propriedade <code>Middlewares</code> dentro do objeto do endpoint.</p>
-<p>Vamos adicionar um <strong>middleware</strong> na rota <code>/cats</code>.</p>
-<pre><code class="language-golang">func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
-    routeInfo := []tupa.RouteInfo{
-        {
-            Path:   &quot;/&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
-            },
-        },
-        {
-            Path:   &quot;/cats&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
-                if err != nil {
-                    return err
-                }
-                defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
-                return err
-            },
-            Middlewares: []tupa.MiddlewareFunc{
-                MiddlewareSampleCats,
-            },
-        },
-    }
-
-    server.RegisterRoutes(routeInfo)
-    server.New()
-}
-
-func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;image/jpeg&quot;)
-        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
-        return next(tc)
-    }
-}
-</code></pre>
-<p>Podemos obter o resultado do middleware acima, basta apertar f12 e conferir a requisição na aba <strong>Network</strong> do nosso <em>devtools</em>.</p>
-<p><img alt="Image title" src="../assets/images/Captura de tela de 2024-04-15 16-07-15.png" /></p>
-<p><a id="rotas-middlewares-diferetes"></a></p>
-<h2 id="conjuntos-de-rotas-com-middlewares-diferentes">Conjuntos de rotas com middlewares diferentes</h2>
-<p>Mas pode ser que queremos adicionar middlewares diferentes para conjuntos de rotas diferentes. Nesse caso podemos armazenar nossas rotas em funções e chamar o método <code>GetRoutes()</code> do Tupã como parâmetro a função <strong>RegisterRoutes()</strong>. Veja um exemplo abaixo:</p>
+<p>Vamos adicionar um <strong>Contexto</strong> no middleware <em>MiddlewareSampleRoute()</em>. Lembrando que em primeiro lugar é chamado os middlewares especificos de rota, e só então os globais.</p>
 <pre><code class="language-golang">func main() {
     server := tupa.NewAPIServer(&quot;:6969&quot;)
     exampleManager()
     server.RegisterRoutes(tupa.GetRoutes())
     server.New()
-}
-
-func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;image/jpeg&quot;)
-        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
-        return next(tc)
-    }
 }
 
 func exampleManager() {
-    tupa.AddRoutes(nil, SampleViewsManager)
     tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
-}
-
-func SampleViewsManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
-            },
-        },
-    }
-}
-
-func SampleRouteManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/cats&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
-                if err != nil {
-                    return err
-                }
-                defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
-                return err
-            },
-        },
-    }
-}
-</code></pre>
-<p>Esse código vai colocar nosso middleware como anteriormente, porém agora está adicionando em um escopo maior, ao invés de ser um middleware de rota ele agora é um middleware que age sobre um <strong>conjunto de rotas</strong>. Dessa forma podemos passar quantas rotas quisermos para um middleware específico.</p>
-<p><a id="middlewares-grupo-rotas-especificos"></a></p>
-<h2 id="middlewares-em-conjuntos-de-rotas-rota-especifica">Middlewares em conjuntos de rotas + rota específica</h2>
-<p>Podemos também adicionar os middlewares para conjuntos de rotas e específicos de rota juntos. Nesse caso a ordem será que os <strong>especificos de rota</strong> terão precedência sobre os de <em>grupo</em> na execução. Vejamos no código a seguir:</p>
-<pre><code class="language-golang">func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
-    exampleManager()
-    server.RegisterRoutes(tupa.GetRoutes())
-    server.New()
 }
 
 func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
     return func(tc *tupa.TupaContext) error {
-        fmt.Println(&quot;Printado depois&quot;)
         return next(tc)
     }
 }
 
 func MiddlewareSampleRoute(next tupa.APIFunc) tupa.APIFunc {
     return func(tc *tupa.TupaContext) error {
-        fmt.Println(&quot;Printado antes&quot;)
-        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;text/plain&quot;)
-        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
+        catsCtxKey := &quot;ctxcats&quot;
+        ctxMsg := &quot;contexto de alguém interessado em gatos&quot;
+        newCtx := context.WithValue(tc.Request().Context(), catsCtxKey, ctxMsg)
+        tc.SetContext(newCtx)
+
         return next(tc)
-    }
-}
-
-func exampleManager() {
-    tupa.AddRoutes(nil, SampleViewsManager)
-    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
-}
-
-func SampleViewsManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
-            },
-        },
     }
 }
 
@@ -643,6 +492,15 @@ func SampleRouteManager() []tupa.RouteInfo {
             Path:   &quot;/cats&quot;,
             Method: &quot;GET&quot;,
             Handler: func(tc *tupa.TupaContext) error {
+                ctxFull := tc.GetCtx()
+                fmt.Println(ctxFull)
+
+                ctxValue := tc.CtxValue(&quot;ctxcats&quot;).(string)
+                fmt.Println(ctxValue)
+
+                ctxVal := tc.GetCtx().Value(&quot;ctxcats&quot;).(string)
+                fmt.Println(ctxVal)
+
                 resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
                 if err != nil {
                     return err
@@ -655,11 +513,12 @@ func SampleRouteManager() []tupa.RouteInfo {
         },
     }
 }
+
 </code></pre>
-<p><strong>Ouput:</strong></p>
-<pre><code class="language-bash">Servidor iniciado na porta: :6969
-Printado antes
-Printado depois
+<p><strong>output:</strong></p>
+<pre><code>context.Background.WithValue(type *http.contextKey, val &lt;not Stringer&gt;).WithValue(type *http.contextKey, val [::1]:6969).WithCancel.WithCancel.WithValue(type mux.contextKey, val &lt;not Stringer&gt;).WithValue(type mux.contextKey, val &lt;not Stringer&gt;).WithValue(type string, val contexto de alguém interessado em gatos)
+contexto de alguém interessado em gatos
+contexto de alguém interessado em gatos
 </code></pre>
 
 

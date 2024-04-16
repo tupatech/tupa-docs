@@ -6,8 +6,7 @@
   <li><a href="#middlewares-grupo-rotas-especificos">Middlewares em conjuntos de rotas + especificos de rotas</a></li>
 </ul>
 
-Usar middlewares no Tupã é muito fácil, podemos implementar middlewares tanto a nível de *rota* quando para *conjuntos de rotas*.
-
+Usar middlewares no Tupã é muito fácil, podemos implementar middlewares tanto a nível de *rota* quando para *conjuntos de rotas*. 
 
 <a id="middlewares-simples"></a>
 ## Middlewares simples
@@ -124,7 +123,7 @@ Esse código vai colocar nosso middleware como anteriormente, porém agora está
 <a id="middlewares-grupo-rotas-especificos"></a>
 ## Middlewares em conjuntos de rotas + rota específica
 
-Podemos também adicionar os middlewares para conjuntos de rotas e específicos de rota juntos. Nesse caso a ordem será que os **especificos de rota** terão precedência sobre os de *grupo*. Vejamos no código a seguir:
+Podemos também adicionar os middlewares para conjuntos de rotas e específicos de rota juntos. Nesse caso a ordem será que os **especificos de rota** terão precedência sobre os de *grupo* na execução. Vejamos no código a seguir:
 
 ```golang
 func main() {

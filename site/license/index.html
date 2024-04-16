@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://github.com/Iuptec/tupa/middlewares/">
+        <link rel="canonical" href="https://github.com/Iuptec/tupa/license/">
       
       
-        <link rel="prev" href="../getting_started/">
+        <link rel="prev" href="../contributing/">
       
-      
-        <link rel="next" href="../context/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Middlewares - Tupã Framework</title>
+        <title>Licença - Tupã Framework</title>
       
     
     
@@ -67,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#middlewares" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -104,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Middlewares
+              Licença
             
           </span>
         </div>
@@ -234,30 +227,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Middlewares
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../middlewares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -266,53 +239,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#middlewares-simples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Middlewares simples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conjuntos-de-rotas-com-middlewares-diferentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conjuntos de rotas com middlewares diferentes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#middlewares-em-conjuntos-de-rotas-rota-especifica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Middlewares em conjuntos de rotas + rota específica
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -381,10 +307,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../license/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -393,6 +326,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -434,43 +368,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#middlewares-simples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Middlewares simples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conjuntos-de-rotas-com-middlewares-diferentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conjuntos de rotas com middlewares diferentes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#middlewares-em-conjuntos-de-rotas-rota-especifica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Middlewares em conjuntos de rotas + rota específica
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -485,181 +382,29 @@
                   
 
 
-<h1 id="middlewares">Middlewares</h1>
-<p><strong>Tabela de conteúdos:</strong></p>
-<ul>
-  <li><a href="#middlewares-simples">MIddlewares simples</a></li>
-  <li><a href="#rotas-middlewares-diferetes">Middlewares diferentes para Conjuntos de rotas</a></li>
-  <li><a href="#middlewares-grupo-rotas-especificos">Middlewares em conjuntos de rotas + especificos de rotas</a></li>
-</ul>
+  <h1>Licença</h1>
 
-<p>Usar middlewares no Tupã é muito fácil, podemos implementar middlewares tanto a nível de <em>rota</em> quando para <em>conjuntos de rotas</em>. </p>
-<p><a id="middlewares-simples"></a></p>
-<h2 id="middlewares-simples">Middlewares simples</h2>
-<p>Vamos adicionar um middleware simples a nível de rota. Basta adicionar uma nova propriedade <code>Middlewares</code> dentro do objeto do endpoint.</p>
-<p>Vamos adicionar um <strong>middleware</strong> na rota <code>/cats</code>.</p>
-<pre><code class="language-golang">func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
-    routeInfo := []tupa.RouteInfo{
-        {
-            Path:   &quot;/&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
-            },
-        },
-        {
-            Path:   &quot;/cats&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
-                if err != nil {
-                    return err
-                }
-                defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
-                return err
-            },
-            Middlewares: []tupa.MiddlewareFunc{
-                MiddlewareSampleCats,
-            },
-        },
-    }
+<pre><code>MIT License
 
-    server.RegisterRoutes(routeInfo)
-    server.New()
-}
+Copyright (c) 2024 Victor Hugo Gabriel dos Reis
 
-func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;image/jpeg&quot;)
-        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
-        return next(tc)
-    }
-}
-</code></pre>
-<p>Podemos obter o resultado do middleware acima, basta apertar f12 e conferir a requisição na aba <strong>Network</strong> do nosso <em>devtools</em>.</p>
-<p><img alt="Image title" src="../assets/images/Captura de tela de 2024-04-15 16-07-15.png" /></p>
-<p><a id="rotas-middlewares-diferetes"></a></p>
-<h2 id="conjuntos-de-rotas-com-middlewares-diferentes">Conjuntos de rotas com middlewares diferentes</h2>
-<p>Mas pode ser que queremos adicionar middlewares diferentes para conjuntos de rotas diferentes. Nesse caso podemos armazenar nossas rotas em funções e chamar o método <code>GetRoutes()</code> do Tupã como parâmetro a função <strong>RegisterRoutes()</strong>. Veja um exemplo abaixo:</p>
-<pre><code class="language-golang">func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
-    exampleManager()
-    server.RegisterRoutes(tupa.GetRoutes())
-    server.New()
-}
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;image/jpeg&quot;)
-        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
-        return next(tc)
-    }
-}
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-func exampleManager() {
-    tupa.AddRoutes(nil, SampleViewsManager)
-    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
-}
-
-func SampleViewsManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
-            },
-        },
-    }
-}
-
-func SampleRouteManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/cats&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
-                if err != nil {
-                    return err
-                }
-                defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
-                return err
-            },
-        },
-    }
-}
-</code></pre>
-<p>Esse código vai colocar nosso middleware como anteriormente, porém agora está adicionando em um escopo maior, ao invés de ser um middleware de rota ele agora é um middleware que age sobre um <strong>conjunto de rotas</strong>. Dessa forma podemos passar quantas rotas quisermos para um middleware específico.</p>
-<p><a id="middlewares-grupo-rotas-especificos"></a></p>
-<h2 id="middlewares-em-conjuntos-de-rotas-rota-especifica">Middlewares em conjuntos de rotas + rota específica</h2>
-<p>Podemos também adicionar os middlewares para conjuntos de rotas e específicos de rota juntos. Nesse caso a ordem será que os <strong>especificos de rota</strong> terão precedência sobre os de <em>grupo</em> na execução. Vejamos no código a seguir:</p>
-<pre><code class="language-golang">func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
-    exampleManager()
-    server.RegisterRoutes(tupa.GetRoutes())
-    server.New()
-}
-
-func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        fmt.Println(&quot;Printado depois&quot;)
-        return next(tc)
-    }
-}
-
-func MiddlewareSampleRoute(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        fmt.Println(&quot;Printado antes&quot;)
-        tc.Resp.Header().Set(&quot;Content-Type&quot;, &quot;text/plain&quot;)
-        tc.Resp.Header().Add(&quot;Referrer-Policy&quot;, &quot;alguem interessado em gatos&quot;)
-        return next(tc)
-    }
-}
-
-func exampleManager() {
-    tupa.AddRoutes(nil, SampleViewsManager)
-    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
-}
-
-func SampleViewsManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
-            },
-        },
-    }
-}
-
-func SampleRouteManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/cats&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
-                if err != nil {
-                    return err
-                }
-                defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
-                return err
-            },
-            Middlewares: []tupa.MiddlewareFunc{MiddlewareSampleRoute},
-        },
-    }
-}
-</code></pre>
-<p><strong>Ouput:</strong></p>
-<pre><code class="language-bash">Servidor iniciado na porta: :6969
-Printado antes
-Printado depois
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 </code></pre>
 
 
