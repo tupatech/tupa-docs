@@ -8,13 +8,16 @@ O único requisito é que [Golang](https://go.dev/dl/), versão 1.21.5 para cima
 
 ## Instalação
 
+Você pode instalar o Tupã no dentro do seu projeto com o comando:
+
+
 ```
 $ go get github.com/tupatech/tupa
 ```
 
 ## Iniciando um Servidor
 
-Para iniciarmos um novo servidor, basta instanciarmos um ```NewAPIServer(":porta")``` e fazer o bootstrap da API com o método ```New()```. Inicialize o módulo na sua máquina ```go mod <nome_modulo>``` e coloque o seguinte conteúdo num arquivo `main.go` 
+Para iniciarmos um novo servidor, basta instanciarmos um ```NewAPIServer(":porta")``` e fazer o bootstrap da API com o método ```New()```. Inicialize o módulo dentro do diretório desejado ```go mod <nome_modulo>```, e coloque o seguinte conteúdo num arquivo `main.go` 
 
 ``` go 
 import (

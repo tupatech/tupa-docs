@@ -470,10 +470,11 @@
 <p>A ideia do framework é ser fácil e rápido de usar para a criação de aplicações robustas rapidamente.</p>
 <p>O único requisito é que <a href="https://go.dev/dl/">Golang</a>, versão 1.21.5 para cima esteja instalado na máquina.</p>
 <h2 id="instalacao">Instalação</h2>
+<p>Você pode instalar o Tupã no dentro do seu projeto com o comando:</p>
 <pre><code>$ go get github.com/tupatech/tupa
 </code></pre>
 <h2 id="iniciando-um-servidor">Iniciando um Servidor</h2>
-<p>Para iniciarmos um novo servidor, basta instanciarmos um <code>NewAPIServer(":porta")</code> e fazer o bootstrap da API com o método <code>New()</code>. Inicialize o módulo na sua máquina <code>go mod &lt;nome_modulo&gt;</code> e coloque o seguinte conteúdo num arquivo <code>main.go</code> </p>
+<p>Para iniciarmos um novo servidor, basta instanciarmos um <code>NewAPIServer(":porta")</code> e fazer o bootstrap da API com o método <code>New()</code>. Inicialize o módulo dentro do diretório desejado <code>go mod &lt;nome_modulo&gt;</code>, e coloque o seguinte conteúdo num arquivo <code>main.go</code> </p>
 <pre><code class="language-go">import (
     import &quot;github.com/tupatech/tupa&quot;
 )
