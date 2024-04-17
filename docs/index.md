@@ -2,13 +2,13 @@
 
 O Tupã é um framework backend feito em Go.
 
-A ideia do framework é ser fácil e rápido de usar para a criação de aplicações robustas rapidamente.
+A ideia do framework é ser fácil e rápido de usar, te ajudando na criação de aplicações robustas feitas rapidamente.
 
 O único requisito é que [Golang](https://go.dev/dl/), versão 1.21.5 para cima esteja instalado na máquina.
 
 ## Instalação
 
-Você pode instalar o Tupã no dentro do seu projeto com o comando:
+Você pode instalar o Tupã dentro do seu projeto com o comando:
 
 
 ```

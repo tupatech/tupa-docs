@@ -3,7 +3,6 @@
 <ul>
   <li><a href="#registro-simples">Registro Simples</a></li>
   <li><a href="#registro-rotas">Registro de mais rotas</a></li>
-  <li><a href="#item-three">Second Item</a></li>
 </ul>
 
  <a id="registro-simples"></a>

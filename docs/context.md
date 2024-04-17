@@ -3,7 +3,7 @@ Você pode acessar o context da requisição a partir da propriedade Context den
 
 ## Context em Middlewares
 
-Podemos facilmente adicionar contexto a uma requisição. No Tupâ existem várias formas de se trabalhar com o contexto través do **TupaContext**. Por exemplo você pode colocar um novo context com o método `SetContext()`, que vai colocar o método na requisição. Para obter o valor do contexto, você pode obter o contexto com os métodos `GetCtx()`, `CtxValue(ctx)`.
+Podemos facilmente adicionar contexto a uma requisição. No Tupâ existem várias formas de se trabalhar com o contexto através do **TupaContext**. Por exemplo você pode colocar um novo context com o método `SetContext()`, que vai colocar o método na requisição. Para obter o valor do contexto, você pode obter o contexto com os métodos `GetCtx()`, `CtxValue(ctx)`.
 
 * `GetCtx()`: retorna o context inteiro da requisição
 * `CtxValue(ctx)`: retorna o contexto específico de acordo com a key especificada
@@ -32,7 +32,7 @@ func MiddlewareSampleRoute(next tupa.APIFunc) tupa.APIFunc {
 	return func(tc *tupa.TupaContext) error {
 		catsCtxKey := "ctxcats"
 		ctxMsg := "contexto de alguém interessado em gatos"
-		newCtx := context.WithValue(tc.Request().Context(), catsCtxKey, ctxMsg)
+		newCtx := context.WithValue(tc.GetCtx(), catsCtxKey, ctxMsg)
 		tc.SetContext(newCtx)
 		
 		return next(tc)

@@ -3,6 +3,7 @@ site_url: https://github.com/Iuptec/tupa
 nav:
   - Inicio Rápido: index.md
   - Registrando novas rotas: getting_started.md
+  - Params e Query Params: params.md
   - Middlewares: middlewares.md
   - Context: context.md
   - Exemplos: examples.md

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/Iuptec/tupa/examples/">
+        <link rel="canonical" href="https://github.com/Iuptec/tupa/params/">
       
       
-        <link rel="prev" href="../context/">
+        <link rel="prev" href="../getting_started/">
       
       
-        <link rel="next" href="../contributing/">
+        <link rel="next" href="../middlewares/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Exemplos - Tupã Framework</title>
+        <title>Params e Query Params - Tupã Framework</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#params-e-query-params" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exemplos
+              Params e Query Params
             
           </span>
         </div>
@@ -229,10 +234,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../params/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Params e Query Params
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -241,6 +266,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obtendo-o-parametro-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtendo o parâmetro da requisição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtendo-query-param-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtendo Query Param da requisição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtendo-multiplos-query-params-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtendo Múltiplos Query Params da requisição
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -289,17 +361,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -308,7 +373,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -390,6 +454,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obtendo-o-parametro-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtendo o parâmetro da requisição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtendo-query-param-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtendo Query Param da requisição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtendo-multiplos-query-params-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtendo Múltiplos Query Params da requisição
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -404,9 +505,168 @@
                   
 
 
-  <h1>Exemplos</h1>
+<h1 id="params-e-query-params">Params e Query Params</h1>
+<p><strong>Tabela de conteúdos:</strong></p>
+<ul>
+  <li><a href="#param">Param(): Obtendo o parâmetro da requisição</a></li>
+  <li><a href="#query-param">QueryParam(): Obtendo unico Query Param</a></li>
+  <li><a href="#query-params">QueryParams(): Obtendo múltiplos Query Params</a></li>
+</ul>
 
-<p>Em breve mais exemplos</p>
+<p>O Tupã te fornece as funções necessárias tanto para obter os parâmetros da requisição, quanto os query parameters.</p>
+<p>Para isso você pode usar as funções <code>Param(param)</code>, <code>QueryParam()</code>, <code>QueryParams()</code>.</p>
+<p><a id="param"></a></p>
+<h2 id="obtendo-o-parametro-da-requisicao">Obtendo o parâmetro da requisição</h2>
+<p>Para obter facilmente o parâmetro da requisição. Para isso colocamos o nome do parâmetro na url, usando a sintaxe <code>/{param}</code>, depois disso podemos chamar a função <code>Param(param)</code> disponível a partir do TupaContext.</p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    exampleManager()
+    server.RegisterRoutes(tupa.GetRoutes())
+    server.New()
+}
+
+func SampleRouteManager() []tupa.RouteInfo {
+    return []tupa.RouteInfo{
+        {
+            Path:   &quot;/{jwt}&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                param := tc.Param(&quot;jwt&quot;)
+                tc.SendString(fmt.Sprintf(&quot;jwt:, %s&quot;, param))
+
+                return nil
+            },
+        },
+    }
+}
+</code></pre>
+<p>Agora em <code>http://localhost:6969/&lt;parametro&gt;</code>, vamos obter o parâmetro correto da requisição:</p>
+<p><img alt="Parametro da request" src="../assets/images/Captura de tela de 2024-04-17 11-58-36.png" /></p>
+<p><a id="query-param"></a></p>
+<h2 id="obtendo-query-param-da-requisicao">Obtendo Query Param da requisição</h2>
+<p>Da mesma forma podemos obter o Query Param (único), com o método <code>QueryParam()</code>. Esse método vai retornar um <strong>parâmetro</strong> especifico da nossa URL, então se especificarmos diversos parâmetros, ele vai retornar só o que especificado.</p>
+<p>Vamos definir uma rota chamada <em>/param</em>, e vamos fazer a chamada usando Query Parameter, dessa forma o fim da url vai ficar <code>/param?&lt;nome_param&gt;=&lt;valor_param&gt;</code></p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    exampleManager()
+    server.RegisterRoutes(tupa.GetRoutes())
+    server.New()
+}
+
+func exampleManager() {
+    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
+}
+
+func SampleRouteManager() []tupa.RouteInfo {
+    return []tupa.RouteInfo{
+        {
+            Path:   &quot;/param&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                param := tc.QueryParam(&quot;jwt&quot;)
+                tc.SendString(fmt.Sprintf(&quot;jwt: %s&quot;, param))
+
+                return nil
+            },
+        },
+    }
+}
+</code></pre>
+<p>Vamos fazer uma GET request para a url <code>http://localhost:6969/param?jwt=eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc</code>.</p>
+<p><strong>Output:</strong></p>
+<p><img alt="Parametro da request" src="../assets/images/Captura de tela de 2024-04-17 11-58-36.png" /></p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    exampleManager()
+    server.RegisterRoutes(tupa.GetRoutes())
+    server.New()
+}
+
+func exampleManager() {
+    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
+}
+
+func SampleRouteManager() []tupa.RouteInfo {
+    return []tupa.RouteInfo{
+        {
+            Path:   &quot;/param&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                param := tc.QueryParam(&quot;jwt&quot;)
+                tc.SendString(fmt.Sprintf(&quot;jwt: %s&quot;, param))
+
+                return nil
+            },
+        },
+    }
+}
+
+</code></pre>
+<p><img alt="Parametro da request" src="../assets/images/Captura de tela de 2024-04-17 12-15-44.png" /></p>
+<ul>
+<li>Como foi dito anteriormente, se passado mais de um parâmetro, esse método vai pegar só o que foi especificado no argumento. Podemos conferir essa funcionalidade.</li>
+</ul>
+<p>Vamos passar 2 argumentos na URL, e fazer uma requisição para <code>http://localhost:6969/param?jwt=eyJhbGciOiJIUzI1NiJ9.eyJSb2x&amp;name=victor</code></p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    exampleManager()
+    server.RegisterRoutes(tupa.GetRoutes())
+    server.New()
+}
+
+func exampleManager() {
+    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
+}
+
+func SampleRouteManager() []tupa.RouteInfo {
+    return []tupa.RouteInfo{
+        {
+            Path:   &quot;/param&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                param := tc.QueryParam(&quot;name&quot;)
+                tc.SendString(fmt.Sprintf(&quot;name: %s&quot;, param))
+
+                return nil
+            },
+        },
+    }
+}
+</code></pre>
+<p><strong>Output</strong>:</p>
+<p><img alt="Parametro da request" src="../assets/images/Captura de tela de 2024-04-17 12-20-16.png" /></p>
+<p><a id="query-params"></a></p>
+<h2 id="obtendo-multiplos-query-params-da-requisicao">Obtendo Múltiplos Query Params da requisição</h2>
+<p>Podemos obter facilmente diversos Query Params da nossa requisição usando o método <code>QueryParams()</code>, esse método vai nos retornar um <code>map[string][]string</code>, ou seja <strong><code>parametro: [valores]</code></strong>.</p>
+<p>Vamos fazer a mesma chamada para <code>http://localhost:6969/param?jwt=eyJhbGciOiJIUzI1NiJ9.eyJSb2x&amp;name=victor</code></p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    exampleManager()
+    server.RegisterRoutes(tupa.GetRoutes())
+    server.New()
+}
+
+func exampleManager() {
+    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
+}
+
+func SampleRouteManager() []tupa.RouteInfo {
+    return []tupa.RouteInfo{
+        {
+            Path:   &quot;/param&quot;,
+            Method: &quot;GET&quot;,
+            Handler: func(tc *tupa.TupaContext) error {
+                param := tc.QueryParams()
+                tc.SendString(fmt.Sprintf(&quot;params: %s&quot;, param))
+
+                return nil
+            },
+        },
+    }
+}
+</code></pre>
+<p><strong>Output:</strong>
+<img alt="Parametro da request" src="../assets/images/Captura de tela de 2024-04-17 12-24-36.png" /></p>
 
 
 

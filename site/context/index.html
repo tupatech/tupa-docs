@@ -237,6 +237,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../params/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Params e Query Params
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../middlewares/" class="md-nav__link">
         
   
@@ -452,7 +472,7 @@
 <h1 id="context-no-tupa">Context no Tupã</h1>
 <p>Você pode acessar o context da requisição a partir da propriedade Context dentro da struct do <strong>Tupa</strong></p>
 <h2 id="context-em-middlewares">Context em Middlewares</h2>
-<p>Podemos facilmente adicionar contexto a uma requisição. No Tupâ existem várias formas de se trabalhar com o contexto través do <strong>TupaContext</strong>. Por exemplo você pode colocar um novo context com o método <code>SetContext()</code>, que vai colocar o método na requisição. Para obter o valor do contexto, você pode obter o contexto com os métodos <code>GetCtx()</code>, <code>CtxValue(ctx)</code>.</p>
+<p>Podemos facilmente adicionar contexto a uma requisição. No Tupâ existem várias formas de se trabalhar com o contexto através do <strong>TupaContext</strong>. Por exemplo você pode colocar um novo context com o método <code>SetContext()</code>, que vai colocar o método na requisição. Para obter o valor do contexto, você pode obter o contexto com os métodos <code>GetCtx()</code>, <code>CtxValue(ctx)</code>.</p>
 <ul>
 <li><code>GetCtx()</code>: retorna o context inteiro da requisição</li>
 <li><code>CtxValue(ctx)</code>: retorna o contexto específico de acordo com a key especificada</li>
@@ -479,7 +499,7 @@ func MiddlewareSampleRoute(next tupa.APIFunc) tupa.APIFunc {
     return func(tc *tupa.TupaContext) error {
         catsCtxKey := &quot;ctxcats&quot;
         ctxMsg := &quot;contexto de alguém interessado em gatos&quot;
-        newCtx := context.WithValue(tc.Request().Context(), catsCtxKey, ctxMsg)
+        newCtx := context.WithValue(tc.GetCtx(), catsCtxKey, ctxMsg)
         tc.SetContext(newCtx)
 
         return next(tc)
