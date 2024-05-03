@@ -17,7 +17,7 @@ $ go get github.com/tupatech/tupa
 
 ## Iniciando um Servidor
 
-Para iniciarmos um novo servidor, basta instanciarmos um ```NewAPIServer(":porta")``` e fazer o bootstrap da API com o método ```New()```. Inicialize o módulo dentro do diretório desejado ```go mod <nome_modulo>```, e coloque o seguinte conteúdo num arquivo `main.go` 
+Para iniciarmos um novo servidor, basta instanciarmos um ```NewAPIServer(":porta", nil)``` e fazer o bootstrap da API com o método ```New()```. Inicialize o módulo dentro do diretório desejado ```go mod <nome_modulo>```, e coloque o seguinte conteúdo num arquivo `main.go` 
 
 ``` go 
 import (
@@ -25,7 +25,7 @@ import (
 )
 
 func main() {
-	server := tupa.NewAPIServer(":6969")
+	server := tupa.NewAPIServer(":6969", nil)
 	server.New()
 }
 ```
@@ -35,3 +35,5 @@ Rode o servidor na máquina ```go run main.go```. No browser em `http://localhos
 ```
 "Seja bem vindo ao Tupã framework"
 ```
+
+[Criando novas rotas](getting_started.md)

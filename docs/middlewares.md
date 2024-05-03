@@ -17,42 +17,49 @@ Vamos adicionar um **middleware** na rota `/cats`.
 
 ```golang
 func main() {
-	server := tupa.NewAPIServer(":6969")
-	routeInfo := []tupa.RouteInfo{
-		{
-			Path:   "/",
-			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
-				return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, "Hello world! :D")
-			},
-		},
-		{
-			Path:   "/cats",
-			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
-				resp, err := http.Get("https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg")
-				if err != nil {
-					return err
-				}
-				defer resp.Body.Close()
-				_, err = io.Copy(*tc.Response(), resp.Body)
-				return err
-			},
-			Middlewares: []tupa.MiddlewareFunc{
-				MiddlewareSampleCats,
-			},
-		},
+	routeManagerExample := func() {
+		routes := func() []tupa.RouteInfo {
+			return []tupa.RouteInfo{
+				{
+					Path:   "/",
+					Method: "GET",
+					Handler: func(c *tupa.TupaContext) error {
+						return tupa.WriteJSONHelper(c.Resp, http.StatusOK, "Hello world! :D")
+					},
+				},
+				{
+					Path:   "/cats",
+					Method: "GET",
+					Handler: func(c *tupa.TupaContext) error {
+						resp, err := http.Get("https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg")
+						if err != nil {
+							return err
+						}
+						defer resp.Body.Close()
+						_, err = io.Copy(c.Resp, resp.Body)
+						return err
+					},
+					Middlewares: []tupa.MiddlewareFunc{
+						MiddlewareSampleCats,
+					},
+				},
+			}
+		}
+
+		tupa.AddRoutes(nil, routes)
 	}
+
+	server := tupa.NewAPIServer(":6969", routeManagerExample)
 
 	server.RegisterRoutes(routeInfo)
 	server.New()
 }
 
 func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-	return func(tc *tupa.TupaContext) error {
-		tc.Resp.Header().Set("Content-Type", "image/jpeg")
-		tc.Resp.Header().Add("Referrer-Policy", "alguem interessado em gatos")
-		return next(tc)
+	return func(c *tupa.TupaContext) error {
+		c.Resp.Header().Set("Content-Type", "image/jpeg")
+		c.Resp.Header().Add("Referrer-Policy", "alguem interessado em gatos")
+		return next(c)
 	}
 }
 ```
@@ -68,17 +75,15 @@ Mas pode ser que queremos adicionar middlewares diferentes para conjuntos de rot
 
 ```golang
 func main() {
-	server := tupa.NewAPIServer(":6969")
-	exampleManager()
-	server.RegisterRoutes(tupa.GetRoutes())
+	server := tupa.NewAPIServer(":6969", exampleManager())
 	server.New()
 }
 
 func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-	return func(tc *tupa.TupaContext) error {
-		tc.Resp.Header().Set("Content-Type", "image/jpeg")
-		tc.Resp.Header().Add("Referrer-Policy", "alguem interessado em gatos")
-		return next(tc)
+	return func(c *tupa.TupaContext) error {
+		c.Resp.Header().Set("Content-Type", "image/jpeg")
+		c.Resp.Header().Add("Referrer-Policy", "alguem interessado em gatos")
+		return next(c)
 	}
 }
 
@@ -92,8 +97,8 @@ func SampleViewsManager() []tupa.RouteInfo {
 		{
 			Path:   "/",
 			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
-				return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, "Hello world! :D")
+			Handler: func(c *tupa.TupaContext) error {
+				return tupa.WriteJSONHelper(c.Resp, http.StatusOK, "Hello world! :D")
 			},
 		},
 	}
@@ -104,13 +109,13 @@ func SampleRouteManager() []tupa.RouteInfo {
 		{
 			Path:   "/cats",
 			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
+			Handler: func(c *tupa.TupaContext) error {
 				resp, err := http.Get("https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg")
 				if err != nil {
 					return err
 				}
 				defer resp.Body.Close()
-				_, err = io.Copy(*tc.Response(), resp.Body)
+				_, err = io.Copy(c.Resp, resp.Body)
 				return err
 			},
 		},
@@ -127,25 +132,23 @@ Podemos também adicionar os middlewares para conjuntos de rotas e específicos 
 
 ```golang
 func main() {
-	server := tupa.NewAPIServer(":6969")
-	exampleManager()
-	server.RegisterRoutes(tupa.GetRoutes())
+	server := tupa.NewAPIServer(":6969", exampleManager())
 	server.New()
 }
 
 func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-	return func(tc *tupa.TupaContext) error {
+	return func(c *tupa.TupaContext) error {
 		fmt.Println("Printado depois")
-		return next(tc)
+		return next(c)
 	}
 }
 
 func MiddlewareSampleRoute(next tupa.APIFunc) tupa.APIFunc {
-	return func(tc *tupa.TupaContext) error {
+	return func(c *tupa.TupaContext) error {
 		fmt.Println("Printado antes")
-		tc.Resp.Header().Set("Content-Type", "text/plain")
-		tc.Resp.Header().Add("Referrer-Policy", "alguem interessado em gatos")
-		return next(tc)
+		c.Resp.Header().Set("Content-Type", "text/plain")
+		c.Resp.Header().Add("Referrer-Policy", "alguem interessado em gatos")
+		return next(c)
 	}
 }
 
@@ -159,8 +162,8 @@ func SampleViewsManager() []tupa.RouteInfo {
 		{
 			Path:   "/",
 			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
-				return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, "Hello world! :D")
+			Handler: func(c *tupa.TupaContext) error {
+				return tupa.WriteJSONHelper(c.Resp, http.StatusOK, "Hello world! :D")
 			},
 		},
 	}
@@ -171,13 +174,13 @@ func SampleRouteManager() []tupa.RouteInfo {
 		{
 			Path:   "/cats",
 			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
+			Handler: func(c *tupa.TupaContext) error {
 				resp, err := http.Get("https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg")
 				if err != nil {
 					return err
 				}
 				defer resp.Body.Close()
-				_, err = io.Copy(*tc.Response(), resp.Body)
+				_, err = io.Copy(c.Resp, resp.Body)
 				return err
 			},
 			Middlewares: []tupa.MiddlewareFunc{MiddlewareSampleRoute},
@@ -192,3 +195,5 @@ Servidor iniciado na porta: :6969
 Printado antes
 Printado depois
 ```
+
+Porém, em alguns casos vamos precisar armazenar algum dado após qualquer requisição for concluída e após todos conjuntos de AfterMiddlewares, para isso devemos usar os [Middlewares Globais](global_middlewares.md)

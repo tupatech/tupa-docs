@@ -12,9 +12,7 @@ Vamos adicionar um **Contexto** no middleware *MiddlewareSampleRoute()*. Lembran
 
 ```golang
 func main() {
-	server := tupa.NewAPIServer(":6969")
-	exampleManager()
-	server.RegisterRoutes(tupa.GetRoutes())
+	server := tupa.NewAPIServer(":6969", exampleManager)
 	server.New()
 }
 

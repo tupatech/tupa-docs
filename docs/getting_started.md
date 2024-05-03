@@ -11,12 +11,12 @@ De forma simples, podemos instanciar uma rota ao chamar o método `RegisterRoute
 
 ```golang
 func main() {
-	server := tupa.NewAPIServer(":6969")
+	server := tupa.NewAPIServer(":6969", nil)
 	routeInfo := tupa.RouteInfo{
 		Path:   "/",
 		Method: "GET",
-		Handler: func(tc *tupa.TupaContext) error {
-			return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, "Hello world! :D")
+		Handler: func(c *tupa.TupaContext) error {
+			return tupa.WriteJSONHelper(c.Resp, http.StatusOK, "Hello world! :D")
 		},
 	}
 	server.RegisterRoutes([]tupa.RouteInfo{routeInfo})
@@ -45,7 +45,7 @@ import (
 )
 
 func main() {
-	server := tupa.NewAPIServer(":6969")
+	server := tupa.NewAPIServer(":6969", nil)
 	routeInfo := []tupa.RouteInfo{
 		{
 			Path:   "/",
@@ -57,13 +57,13 @@ func main() {
 		{
 			Path:   "/cats",
 			Method: "GET",
-			Handler: func(tc *tupa.TupaContext) error {
+			Handler: func(c *tupa.TupaContext) error {
 				resp, err := http.Get("https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg")
 				if err != nil {
 					return err
 				}
 				defer resp.Body.Close()
-				_, err = io.Copy(*tc.Response(), resp.Body)
+				_, err = io.Copy(c.Resp, resp.Body)
 				return err
 			},
 		},
@@ -77,4 +77,4 @@ func main() {
 
 Agora teremos os dois endpoints registrados, se `/`e `/cats`. Se formos em `http://localhost:6969/cat` vamos ver a foto de um 🐈.
 
-Porém, em alguns casos vamos precisar registrar rotas com regras diferentes, para isso devemos usar os [middlewares](middlewares.md). 
+Porém, em uma aplicação real, precisamos manter uma arquitetura mais organizada do framework, para isso devemos usar os [Routes Managers](routes_manager.md). 
