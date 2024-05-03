@@ -14,7 +14,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../params/">
+        <link rel="next" href="../routes_manager/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -295,6 +295,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../routes_manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routes Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../params/" class="md-nav__link">
         
   
@@ -320,6 +340,46 @@
   
   <span class="md-ellipsis">
     Middlewares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_middlewares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global Middlewares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../after_middlewares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    After Middlewares
   </span>
   
 
@@ -498,12 +558,12 @@
 <h2 id="registro-simples">Registro simples</h2>
 <p>De forma simples, podemos instanciar uma rota ao chamar o método <code>RegisterRoutes([]tupa.RouteInfo{routeInfo})</code>, que podemos acessar facilmente a partir do nosso servidor instanciado.</p>
 <pre><code class="language-golang">func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    server := tupa.NewAPIServer(&quot;:6969&quot;, nil)
     routeInfo := tupa.RouteInfo{
         Path:   &quot;/&quot;,
         Method: &quot;GET&quot;,
-        Handler: func(tc *tupa.TupaContext) error {
-            return tupa.WriteJSONHelper(*tc.Response(), http.StatusOK, &quot;Hello world! :D&quot;)
+        Handler: func(c *tupa.TupaContext) error {
+            return tupa.WriteJSONHelper(c.Resp, http.StatusOK, &quot;Hello world! :D&quot;)
         },
     }
     server.RegisterRoutes([]tupa.RouteInfo{routeInfo})
@@ -526,7 +586,7 @@ import (
 )
 
 func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    server := tupa.NewAPIServer(&quot;:6969&quot;, nil)
     routeInfo := []tupa.RouteInfo{
         {
             Path:   &quot;/&quot;,
@@ -538,13 +598,13 @@ func main() {
         {
             Path:   &quot;/cats&quot;,
             Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
+            Handler: func(c *tupa.TupaContext) error {
                 resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
                 if err != nil {
                     return err
                 }
                 defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
+                _, err = io.Copy(c.Resp, resp.Body)
                 return err
             },
         },
@@ -556,7 +616,7 @@ func main() {
 
 </code></pre>
 <p>Agora teremos os dois endpoints registrados, se <code>/</code>e <code>/cats</code>. Se formos em <code>http://localhost:6969/cat</code> vamos ver a foto de um 🐈.</p>
-<p>Porém, em alguns casos vamos precisar registrar rotas com regras diferentes, para isso devemos usar os <a href="../middlewares/">middlewares</a>. </p>
+<p>Porém, em uma aplicação real, precisamos manter uma arquitetura mais organizada do framework, para isso devemos usar os <a href="../routes_manager/">Routes Managers</a>. </p>
 
 
 

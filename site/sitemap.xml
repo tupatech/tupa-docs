@@ -2,42 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/Iuptec/tupa/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Iuptec/tupa/after_middlewares/</loc>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/context/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/contributing/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/examples/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/getting_started/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Iuptec/tupa/global_after_middlewares/</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Iuptec/tupa/global_middlewares/</loc>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/license/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/middlewares/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/Iuptec/tupa/params/</loc>
-         <lastmod>2024-04-17</lastmod>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/Iuptec/tupa/routes_manager/</loc>
+         <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

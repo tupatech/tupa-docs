@@ -293,6 +293,26 @@
   
   
     <li class="md-nav__item">
+      <a href="routes_manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routes Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="params/" class="md-nav__link">
         
   
@@ -318,6 +338,46 @@
   
   <span class="md-ellipsis">
     Middlewares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="global_middlewares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global Middlewares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="after_middlewares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    After Middlewares
   </span>
   
 
@@ -494,19 +554,20 @@
 <pre><code>$ go get github.com/tupatech/tupa
 </code></pre>
 <h2 id="iniciando-um-servidor">Iniciando um Servidor</h2>
-<p>Para iniciarmos um novo servidor, basta instanciarmos um <code>NewAPIServer(":porta")</code> e fazer o bootstrap da API com o método <code>New()</code>. Inicialize o módulo dentro do diretório desejado <code>go mod &lt;nome_modulo&gt;</code>, e coloque o seguinte conteúdo num arquivo <code>main.go</code> </p>
+<p>Para iniciarmos um novo servidor, basta instanciarmos um <code>NewAPIServer(":porta", nil)</code> e fazer o bootstrap da API com o método <code>New()</code>. Inicialize o módulo dentro do diretório desejado <code>go mod &lt;nome_modulo&gt;</code>, e coloque o seguinte conteúdo num arquivo <code>main.go</code> </p>
 <pre><code class="language-go">import (
     import &quot;github.com/tupatech/tupa&quot;
 )
 
 func main() {
-    server := tupa.NewAPIServer(&quot;:6969&quot;)
+    server := tupa.NewAPIServer(&quot;:6969&quot;, nil)
     server.New()
 }
 </code></pre>
 <p>Rode o servidor na máquina <code>go run main.go</code>. No browser em <code>http://localhost:6969/</code> vamos receber a seguinte mensagem:</p>
 <pre><code>&quot;Seja bem vindo ao Tupã framework&quot;
 </code></pre>
+<p><a href="getting_started/">Criando novas rotas</a></p>
 
 
 

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/Iuptec/tupa/context/">
+        <link rel="canonical" href="https://github.com/Iuptec/tupa/global_middlewares/">
       
       
-        <link rel="prev" href="../after_middlewares/">
+        <link rel="prev" href="../middlewares/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../after_middlewares/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Context - Tupã Framework</title>
+        <title>Global Middlewares - Tupã Framework</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context-no-tupa" class="md-skip">
+        <a href="#criando-global-middlewares" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Context
+              Global Middlewares
             
           </span>
         </div>
@@ -294,10 +294,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../global_middlewares/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -306,6 +315,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -334,30 +344,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Context
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../context/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,35 +356,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#context-em-middlewares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Context em Middlewares
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -499,23 +460,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#context-em-middlewares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Context em Middlewares
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -529,75 +473,76 @@
                   
 
 
-<h1 id="context-no-tupa">Context no Tupã</h1>
-<p>Você pode acessar o context da requisição a partir da propriedade Context dentro da struct do <strong>Tupa</strong></p>
-<h2 id="context-em-middlewares">Context em Middlewares</h2>
-<p>Podemos facilmente adicionar contexto a uma requisição. No Tupâ existem várias formas de se trabalhar com o contexto através do <strong>TupaContext</strong>. Por exemplo você pode colocar um novo context com o método <code>SetContext()</code>, que vai colocar o método na requisição. Para obter o valor do contexto, você pode obter o contexto com os métodos <code>GetCtx()</code>, <code>CtxValue(ctx)</code>.</p>
+<h1 id="criando-global-middlewares">Criando Global Middlewares</h1>
+<p><strong>Tabela de conteúdos:</strong></p>
 <ul>
-<li><code>GetCtx()</code>: retorna o context inteiro da requisição</li>
-<li><code>CtxValue(ctx)</code>: retorna o contexto específico de acordo com a key especificada</li>
+  <li><a href="#route-manager">Criando Global Middlewares</a></li>
 </ul>
-<p>Vamos adicionar um <strong>Contexto</strong> no middleware <em>MiddlewareSampleRoute()</em>. Lembrando que em primeiro lugar é chamado os middlewares especificos de rota, e só então os globais.</p>
+
+<p>É possível criar middlewares que são executados antes de todos os outros e que é aplicado para <em>todas as rotas</em>. Podemos fazer isso com a função <code>UseGlobalMiddlewares</code>. Veja o exemplo abaixo de como usar.</p>
 <pre><code class="language-golang">func main() {
     server := tupa.NewAPIServer(&quot;:6969&quot;, exampleManager)
+
+    server.UseGlobalMiddlewares(GlobalMiddleware1)
+
     server.New()
 }
 
 func exampleManager() {
-    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCats}, SampleRouteManager)
+    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCatsCONJUNTOSROTAS}, noMiddlewaresRoutesManager)
 }
 
-func MiddlewareSampleCats(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        return next(tc)
+func GlobalMiddleware1(next tupa.APIFunc) tupa.APIFunc {
+    return func(c *tupa.TupaContext) error {
+        slog.Info(&quot;GlobalMiddleware1 -&gt; midd global 1&quot;)
+        return next(c)
     }
 }
 
-func MiddlewareSampleRoute(next tupa.APIFunc) tupa.APIFunc {
-    return func(tc *tupa.TupaContext) error {
-        catsCtxKey := &quot;ctxcats&quot;
-        ctxMsg := &quot;contexto de alguém interessado em gatos&quot;
-        newCtx := context.WithValue(tc.GetCtx(), catsCtxKey, ctxMsg)
-        tc.SetContext(newCtx)
-
-        return next(tc)
-    }
-}
-
-func SampleRouteManager() []tupa.RouteInfo {
-    return []tupa.RouteInfo{
-        {
-            Path:   &quot;/cats&quot;,
-            Method: &quot;GET&quot;,
-            Handler: func(tc *tupa.TupaContext) error {
-                ctxFull := tc.GetCtx()
-                fmt.Println(ctxFull)
-
-                ctxValue := tc.CtxValue(&quot;ctxcats&quot;).(string)
-                fmt.Println(ctxValue)
-
-                ctxVal := tc.GetCtx().Value(&quot;ctxcats&quot;).(string)
-                fmt.Println(ctxVal)
-
-                resp, err := http.Get(&quot;https://cdn2.thecatapi.com/images/dN6eoeLjY.jpg&quot;)
-                if err != nil {
-                    return err
-                }
-                defer resp.Body.Close()
-                _, err = io.Copy(*tc.Response(), resp.Body)
-                return err
-            },
-            Middlewares: []tupa.MiddlewareFunc{MiddlewareSampleRoute},
-        },
+func MiddlewareSampleCatsCONJUNTOSROTAS(next tupa.APIFunc) tupa.APIFunc {
+    return func(c *tupa.TupaContext) error {
+        slog.Info(&quot;MiddlewareSampleCats -&gt; midd conjuntos de rotas&quot;)
+        return next(c)
     }
 }
 
 </code></pre>
-<p><strong>output:</strong></p>
-<pre><code>context.Background.WithValue(type *http.contextKey, val &lt;not Stringer&gt;).WithValue(type *http.contextKey, val [::1]:6969).WithCancel.WithCancel.WithValue(type mux.contextKey, val &lt;not Stringer&gt;).WithValue(type mux.contextKey, val &lt;not Stringer&gt;).WithValue(type string, val contexto de alguém interessado em gatos)
-contexto de alguém interessado em gatos
-contexto de alguém interessado em gatos
+<p>Dessa forma nosso middleware Global executou <em>antes</em> de todos os outros middlewares.</p>
+<p>Os middlewares são executados por ordem crescente, portanto serão executados do menor índice para o maior índice, o exemplo abaixo mostra como se deve usar múltiplos middlewares.</p>
+<pre><code class="language-golang">func main() {
+    server := tupa.NewAPIServer(&quot;:6969&quot;, exampleManager)
+
+    server.UseGlobalMiddlewares(GlobalMiddleware1, GlobalMiddleware2)
+
+    server.New()
+}
+
+func exampleManager() {
+    tupa.AddRoutes(tupa.MiddlewareChain{MiddlewareSampleCatsCONJUNTOSROTAS}, noMiddlewaresRoutesManager)
+}
+
+func GlobalMiddleware1(next tupa.APIFunc) tupa.APIFunc {
+    return func(c *tupa.TupaContext) error {
+        slog.Info(&quot;GlobalMiddleware1 -&gt; midd global 1&quot;)
+        return next(c)
+    }
+}
+
+func GlobalMiddleware2(next tupa.APIFunc) tupa.APIFunc {
+    return func(c *tupa.TupaContext) error {
+        slog.Info(&quot;GlobalMiddleware2 -&gt; midd global 2&quot;)
+        return next(c)
+    }
+}
+
+func MiddlewareSampleCatsCONJUNTOSROTAS(next tupa.APIFunc) tupa.APIFunc {
+    return func(c *tupa.TupaContext) error {
+        slog.Info(&quot;MiddlewareSampleCats -&gt; midd conjuntos de rotas&quot;)
+        return next(c)
+    }
+}
 </code></pre>
+<p>Acima vimos como criar middlewares que são executados antes de todos os outros, porém vão ter situações que vamos precisar criar middlewares que devem ser executados <em>depois</em> de todos os outros middlewares e depois da requisição em si. Para isso devemos usar os <a href="../after_middlewares/">After Middlewares</a></p>
 
 
 
