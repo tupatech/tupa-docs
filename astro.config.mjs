@@ -40,7 +40,18 @@ export default defineConfig({
 						{ label: 'Contribute', link: '/contribute/contribute' },
 					]
 				},
+				{
+					label: 'Brand Assets',
+					items: [
+						{ label: 'Brand Assets', link: '/brand-assets/brand-assets' },
+					]
+				}
 			],
+			logo: { 
+				light: './public/tupa.png', 
+				dark: './public/tupa-white.png' 
+			},
+			favicon: './public/favicon.png',
 		}),
 	],
 });
