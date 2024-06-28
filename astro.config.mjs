@@ -48,10 +48,10 @@ export default defineConfig({
 				}
 			],
 			logo: { 
-				light: './public/tupa.png', 
-				dark: './public/tupa-white.png' 
+				dark: '/tupa-white.png',
+				light: '/tupa.png', 
 			},
-			favicon: './public/favicon.png',
+			favicon: '/favicon.png',
 		}),
 	],
 });
